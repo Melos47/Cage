@@ -78,7 +78,7 @@ function draw() {
 
 // Function to apply pixelation to the body area
 function pixelatedBody() {
-  const stepSize = 7;
+  const stepSize = 10;
 
   for (let i = 0; i < poses.length; i++) {
     let pose = poses[i];
