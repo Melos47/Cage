@@ -308,7 +308,7 @@ function draw() {
 
 function checkInactivity() {
   if (millis() - lastInteractionTime > timeoutDuration) {
-    location.reload(); // 10分钟无操作后刷新页面
+    location.reload(); // 5分钟无操作后刷新页面
   }
 }
 function mouseMoved() {
