@@ -212,7 +212,7 @@ function setup() {
   
   let options = {
     video: {
-      deviceId: devices[1].id
+      deviceId: devices[0].id
     }
   };
   
