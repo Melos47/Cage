@@ -10,7 +10,7 @@ let pos;
 let circlePosition;
 //refresh page
 let lastInteractionTime;
-const timeoutDuration = 300000;//10 min = 600000ms 5min
+const timeoutDuration = 300000;//10 min = 600000ms 5min = 300000
 
 let font1, font2;
 
@@ -1377,6 +1377,6 @@ function stop6() {
   gaze1astop = true;
 }
 
-// function windowResized() {
-//   resizeCanvas(windowWidth, windowHeight);
-// }
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
