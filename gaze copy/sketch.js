@@ -10,7 +10,9 @@ let pos;
 let circlePosition;
 //refresh page
 let lastInteractionTime;
-const timeoutDuration = 180000;//10 min = 600000ms 5min = 300000
+const timeoutDuration = 300000;//10 min = 600000ms 5min = 300000
+
+let showNote = true; // 初始状态显示
 
 let font1, font2;
 
@@ -82,6 +84,7 @@ let CamGif3;
 let CamGif4;
 let exit;
 
+let note;
 
 //噪点
 let whiteNoise = true;
@@ -183,6 +186,7 @@ function preload() {
   CamGif4 = loadImage("noise5.gif");
   exit = loadImage("exit.png");
   cursorEscape = loadImage("escape.png");
+  note = loadImage("Note.png");
   faceMesh = ml5.faceMesh(options);
 
   font1 = loadFont("Silkscreen-Regular.ttf");
@@ -209,7 +213,12 @@ function gotDevices(deviceInfos) {
 function setup() {
   var cnv = createCanvas(1280, 720); //replace your other version of create canvas
   cnv.mousePressed(userStartAudio);
-  
+
+  setTimeout(() => {
+    showNote = false; // 9 秒后隐藏 note.png
+    scene = 0; // 进入 beginning()
+  }, 9000);
+
   let options = {
     video: {
       deviceId: devices[0].id
@@ -248,6 +257,7 @@ if (capture) {
 }
 
 function draw() {
+  background(0,30)
   xval = mouseX;
   yval = mouseY;
   xpos = mouseX;
@@ -279,9 +289,13 @@ function draw() {
   transCamGif3 = map(xpos, width / 2, width, 10, 255);
   transCamGif4 = map(xpos, width, width / 2.5, 10, 255);
 
-  if (scene == 0) {
-    beginning();
-  } else if (scene == 1) {
+  if (showNote) {
+    image(note, width / 2, height / 2, note.width / 3, note.height / 3);
+  } else {
+    // 进入主界面逻辑
+    if (scene == 0) {
+      beginning();
+    } else if (scene == 1) {
     showMenu();
   } else if (scene == 2) {
     gaze1();
@@ -302,6 +316,8 @@ function draw() {
   } else if (scene == 10) {
     gaze3A();
   }
+  }
+  
 
   checkInactivity()
 }
@@ -1377,6 +1393,6 @@ function stop6() {
   gaze1astop = true;
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
+// }
