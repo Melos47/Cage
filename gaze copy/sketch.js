@@ -10,9 +10,12 @@ let pos;
 let circlePosition;
 //refresh page
 let lastInteractionTime;
-const timeoutDuration = 300000;//10 min = 600000ms 5min = 300000
+const timeoutDuration = 180000;//10 min = 600000ms 5min = 300000
 
 let showNote = true; // 初始状态显示
+let note1;
+let showNote1 = false;
+let note1StartTime = 0;
 
 let font1, font2;
 
@@ -187,6 +190,7 @@ function preload() {
   exit = loadImage("exit.png");
   cursorEscape = loadImage("escape.png");
   note = loadImage("Note.png");
+  note1 = loadImage("note1.png"); 
   faceMesh = ml5.faceMesh(options);
 
   font1 = loadFont("Silkscreen-Regular.ttf");
@@ -215,9 +219,16 @@ function setup() {
   cnv.mousePressed(userStartAudio);
 
   setTimeout(() => {
-    showNote = false; // 9 秒后隐藏 note.png
-    scene = 0; // 进入 beginning()
-  }, 9000);
+    showNote = false;      // note消失
+    showNote1 = true;      // note1出现
+    note1StartTime = millis();
+
+    setTimeout(() => {
+      showNote1 = false;   // note1消失
+      scene = 0;           // 进入主界面
+    }, 7000); // note1 显示7秒
+  }, 8000); // note 显示9秒
+
 
   let options = {
     video: {
@@ -254,6 +265,10 @@ if (capture) {
   containerY = 100;
   containerWidth = 500;
   containerHeight = 300;
+}
+
+function mousePressed() {
+  lastInteractionTime = millis(); // 记录交互时间
 }
 
 function draw() {
@@ -293,7 +308,9 @@ function draw() {
     image(note, width / 2, height / 2, note.width / 3, note.height / 3);
   } else {
     // 进入主界面逻辑
-    if (scene == 0) {
+    if (showNote1) {
+      image(note1, width / 2, height / 2, note1.width / 3, note1.height / 3);
+    }else  if(scene == 0) {
       beginning();
     } else if (scene == 1) {
     showMenu();
@@ -317,7 +334,10 @@ function draw() {
     gaze3A();
   }
   }
-  
+  if (showNote1) {
+    image(note1, width / 2, height / 2, note1.width / 3, note1.height / 3);
+  }
+
 
   checkInactivity()
 }
@@ -1393,6 +1413,6 @@ function stop6() {
   gaze1astop = true;
 }
 
-// function windowResized() {
-//   resizeCanvas(windowWidth, windowHeight);
-// }
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
