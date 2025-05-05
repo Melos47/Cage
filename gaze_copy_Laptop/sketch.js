@@ -141,8 +141,8 @@ let textEye3;
 let textEye4;
 
 let longEye;
-let xOrigin = 3700;
-let yOrigin = 330;
+let xOrigin = 3900;
+let yOrigin = 350;
 
 function preload() {
   peek = loadImage("peek.png");
