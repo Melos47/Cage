@@ -13,6 +13,7 @@ let lastInteractionTime;
 const timeoutDuration = 180000;//10 min = 600000ms 5min = 300000
 
 let showNote = true; // 初始状态显示
+let note0;
 let note1;
 let showNote1 = false;
 let note1StartTime = 0;
@@ -87,7 +88,7 @@ let CamGif3;
 let CamGif4;
 let exit;
 
-let note;
+
 
 //噪点
 let whiteNoise = true;
@@ -189,8 +190,8 @@ function preload() {
   CamGif4 = loadImage("noise5.gif");
   exit = loadImage("exit.png");
   cursorEscape = loadImage("escape.png");
-  note = loadImage("Note.png");
-  note1 = loadImage("note1.png"); 
+  note0 = loadImage("popup1.png");
+  note1 = loadImage("popup2.png"); 
   faceMesh = ml5.faceMesh(options);
 
   font1 = loadFont("Silkscreen-Regular.ttf");
@@ -333,6 +334,7 @@ function draw() {
   } else if (scene == 10) {
     gaze3A();
   }
+  noCursor();
   }
   if (showNote1) {
     image(note1, width / 2, height / 2, note1.width / 3, note1.height / 3);
