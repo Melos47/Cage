@@ -141,7 +141,7 @@ let textEye3;
 let textEye4;
 
 let longEye;
-let xOrigin = 3900;
+let xOrigin = 4100;
 let yOrigin = 350;
 
 function preload() {
