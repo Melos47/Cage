@@ -306,11 +306,11 @@ function draw() {
   transCamGif4 = map(xpos, width, width / 2.5, 10, 255);
 
   if (showNote) {
-    image(note, width / 2, height / 2, note.width / 3, note.height / 3);
+    image(note0, width / 2, height / 2, note0.width / 1.5, note0.height / 1.5);
   } else {
     // 进入主界面逻辑
     if (showNote1) {
-      image(note1, width / 2, height / 2, note1.width / 3, note1.height / 3);
+      image(note1, width / 2, height / 2, note1.width / 1.5, note1.height / 1.5);
     }else  if(scene == 0) {
       beginning();
     } else if (scene == 1) {
@@ -336,10 +336,7 @@ function draw() {
   }
   noCursor();
   }
-  if (showNote1) {
-    image(note1, width / 2, height / 2, note1.width / 3, note1.height / 3);
-  }
-
+ 
 
   checkInactivity()
 }
