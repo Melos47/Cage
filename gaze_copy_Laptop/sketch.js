@@ -215,7 +215,7 @@ function gotDevices(deviceInfos) {
 }
 
 function setup() {
-  var cnv = createCanvas(1280, 720); //replace your other version of create canvas
+  var cnv = createCanvas(windowWidth, windowHeight); //replace your other version of create canvas
   cnv.mousePressed(userStartAudio);
 
   setTimeout(() => {
