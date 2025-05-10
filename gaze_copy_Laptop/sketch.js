@@ -18,7 +18,7 @@ let note1;
 let showNote1 = false;
 let note1StartTime = 0;
 
-let font1, font2;
+let font1, font2, font3;
 
 let clickedEyes = { eye1: false, eye2: false, eye3: false, eye4: false };
 let allClicked = false;
@@ -89,7 +89,6 @@ let CamGif4;
 let exit;
 
 
-
 //噪点
 let whiteNoise = true;
 let whiteNoiseMax = 100;
@@ -106,8 +105,6 @@ let pupilSize = 90; // Size of the pupil
 let iris;
 let eyeSpacingX, eyeSpacingY;
 
-// let xpos = mouseX;//location of joystick
-// let ypos = mouseY;
 
 let keepMenu = false;
 
@@ -134,11 +131,13 @@ let cursorLeave;
 let cursorContinue;
 let cursorEscape;
 
-//menupage's hint text
-let textEye1;
-let textEye2;
-let textEye3;
-let textEye4;
+
+//menupage 中文提示词
+let textBegin
+let textEye1Chi;
+let textEye2Chi;
+let textEye3Chi;
+let textEye4Chi;
 
 let longEye;
 let xOrigin = 4100;
@@ -196,6 +195,7 @@ function preload() {
 
   font1 = loadFont("Silkscreen-Regular.ttf");
   font2 = loadFont("CourierPrime-Regular.ttf");
+  font3 = loadFont("NotoSansSC-VariableFont_wght.ttf");
 
   lastInteractionTime = millis(); 
   navigator.mediaDevices.enumerateDevices()
@@ -399,7 +399,7 @@ function beginning() {
     fill(255, 0, 0);
     ellipse(circlePosition.x, circlePosition.y, 30);
     noCursor();
-
+    
     image(
       cursor0,
       mouseX + 100,
@@ -407,6 +407,13 @@ function beginning() {
       cursor0.width / 3,
       cursor0.height / 3
     );
+    push();
+    fill(180);
+    textFont(font3);
+    textSize(18);
+    textAlign(CENTER);
+    text("要窥视吗?", width/2, height/6);
+    pop();
 
     //text("Peeking into?", width/2, height/2 +300);
 
@@ -489,6 +496,15 @@ function showMenu() {
     textAlign(LEFT)
     text("hint: the <bottom right cornor>", width / 4.5 - 50, height / 2.2 + 130);
     pop();
+
+    push();
+    fill(180);
+    textFont(font3);
+    textSize(18);
+    textAlign(CENTER);
+    text("我以为到了<最右边的角落>就不会有人注意到我。", width/2, height/6);
+    pop();
+
     noCursor();
     //image(textEye1, width/2, height/2+240, textEye1.width/2.5, textEye1.height/2.5);
     push();
@@ -538,6 +554,14 @@ function showMenu() {
     textAlign(LEFT)
     text("hint: the most <restless> one", width / 4.5 - 50, height / 2.2 + 130);
     pop();
+    push();
+    fill(180);
+    textFont(font3);
+    textSize(18);
+    textAlign(CENTER);
+    text("我永远是<最动荡不安>的那个。", width/2, height/6);
+    pop();
+
     noCursor();
     push();
     fill(255, 0, 0);
@@ -576,6 +600,15 @@ function showMenu() {
     ellipse(circlePosition.x, circlePosition.y, 30);
     text(currentString3, width / 2, height / 2 + 200);
     pop();
+
+    push();
+    fill(180);
+    textFont(font3);
+    textSize(18);
+    textAlign(CENTER);
+    text("我们永远无法逃脱，我们都<被监视着>。", width/2, height/6);
+
+    pop();
     currentCharacter3 += 0.8;
     //image(textEye3, width/2, height/2+250,textEye3.width/2.5, textEye3.height/2.5);
     if (image4Audio.isPlaying() == false) {
@@ -605,6 +638,13 @@ function showMenu() {
     ellipse(circlePosition.x, circlePosition.y, 30);
     textSize(30)
     text(currentString4, width / 2, height / 2 + 200);
+    pop();
+    push();
+    fill(180);
+    textFont(font3);
+    textSize(18);
+    textAlign(CENTER);
+    text("人们在看我们，<我就是你>，你就是我。", width/2, height/6);
     pop();
     currentCharacter4 += 0.7;
 
@@ -833,6 +873,14 @@ function gaze1A() {
     text(currentString5, width / 2, height / 2 - 80);
     // pop();
     currentCharacter5 += 0.7;
+
+    push();
+    fill(180);
+    textFont(font3);
+    textSize(18);
+    textAlign(CENTER);
+    text("我们会找到你的，不论你身在何处。", width/2, height/6);
+    pop();
 
     if (gaze1aAudio.isPlaying() == false) {
       // .isPlaying() returns a boolean
