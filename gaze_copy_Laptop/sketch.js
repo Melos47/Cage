@@ -410,7 +410,7 @@ function beginning() {
     push();
     fill(180);
     textFont(font3);
-    textSize(18);
+    textSize(20);
     textAlign(CENTER);
     text("要窥视吗?", width/2, height/6);
     pop();
@@ -500,7 +500,7 @@ function showMenu() {
     push();
     fill(180);
     textFont(font3);
-    textSize(18);
+    textSize(20);
     textAlign(CENTER);
     text("我以为到了<最右边的角落>就不会有人注意到我。", width/2, height/6);
     pop();
@@ -557,7 +557,7 @@ function showMenu() {
     push();
     fill(180);
     textFont(font3);
-    textSize(18);
+    textSize(20);
     textAlign(CENTER);
     text("我永远是<最动荡不安>的那个。", width/2, height/6);
     pop();
@@ -604,7 +604,7 @@ function showMenu() {
     push();
     fill(180);
     textFont(font3);
-    textSize(18);
+    textSize(20);
     textAlign(CENTER);
     text("我们永远无法逃脱，我们都<被监视着>。", width/2, height/6);
 
@@ -642,7 +642,7 @@ function showMenu() {
     push();
     fill(180);
     textFont(font3);
-    textSize(18);
+    textSize(20);
     textAlign(CENTER);
     text("人们在看我们，<我就是你>，你就是我。", width/2, height/6);
     pop();
