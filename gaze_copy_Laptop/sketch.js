@@ -141,7 +141,7 @@ let textEye4Chi;
 
 let longEye;
 let xOrigin = 4100;
-let yOrigin = 350;
+let yOrigin = 370;
 
 function preload() {
   peek = loadImage("peek.png");
