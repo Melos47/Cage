@@ -877,7 +877,7 @@ function gaze1A() {
     push();
     fill(180);
     textFont(font3);
-    textSize(18);
+    textSize(20);
     textAlign(CENTER);
     text("我们会找到你的，不论你身在何处。", width/2, height/6);
     pop();
