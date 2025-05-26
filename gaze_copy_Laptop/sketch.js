@@ -683,7 +683,13 @@ function showMenu() {
       mouseY + 25,
       cursorEscape.width,
       cursorEscape.height);
-      
+      push();
+    fill(180);
+    textFont(font3);
+    textSize(20);
+    textAlign(CENTER);
+    text("逃出去？", width/2, height/6);
+    pop();
       noCursor();
       fill(255, 0, 0);
       ellipse(circlePosition.x, circlePosition.y, 30);
